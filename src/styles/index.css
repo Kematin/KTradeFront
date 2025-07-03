@@ -1,0 +1,77 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/K2D-Medium.ttf') format('ttf');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap; 
+}
+
+
+:root {
+  /* colors */
+  --primary-color: #16191D;
+  --text-color: #FFFFFF;
+  --component-color: #23272F;
+  --contrast-color: #F7CB15;
+  --success-color: #70FB75;
+  --alert-color: #FF0000;
+
+  /* item-colors */
+  --shirp: #818C9A;
+  --light-blue: #5E98D9;
+  --blue: #4B69CD;
+  --purple: #7458E4;
+  --pink: #D32CE6;
+  --red: #EB4B4B;
+  --gold: #CAAB05;
+
+  /* quality-colors */
+  --bs: #F0555D;
+  --ww: #E5B959;
+  --ft: #DCE467;
+  --mw: #88BD9C;
+  --fn: #93F846;
+  --statrack: #CF6A32;
+  --souvenir: #FFD700;
+
+  /* font */
+  --font-main: 'K2D', sans-serif;
+  --font-size-base: 15px;
+  --font-size-big: 32px;
+
+  /* shadow */
+  --shadow-default: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+html {
+  font-size: var(--font-size-base);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--primary-color);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+

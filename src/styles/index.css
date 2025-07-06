@@ -21,8 +21,8 @@
   --text-color: #FFFFFF;
   --component-color: #23272F;
   --contrast-color: #F7CB15;
-  --success-color: #70FB75;
-  --alert-color: #FF0000;
+  --success-color:rgba(112, 251, 117, 0.1); 
+  --alert-color: rgba(255,0,0,0.1);
 
   /* item-colors */
   --shirp: #818C9A;
@@ -45,7 +45,7 @@
   /* font */
   --font-main: 'K2D', sans-serif;
   --font-size-base: 15px;
-  --font-size-big: 32px;
+  --font-size-big: 28px;
 
   /* shadow */
   --shadow-default: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -73,5 +73,16 @@ a {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
+}
+
+.blocked {
+  display: block;
+  color: rgba(255,255,255, 0.4);
+  cursor: default;
+}
+
+.active {
+  color: var(--contrast-color);
+  font-weight: bold;
 }
 

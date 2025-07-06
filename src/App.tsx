@@ -1,8 +1,10 @@
+import { BasePage } from "./pages/Base"
+
 function App() {
 
   return (
     <>
-      <h1>YiasrfjgoiajfghjaOdgjaad</h1>
+      <BasePage />
     </>
   )
 }

@@ -1,0 +1,61 @@
+
+.item {
+  width: 500px;
+  height: 70px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.about {
+  display: flex;
+  gap: 15px;
+}
+
+.description {
+  display: grid;
+}
+
+.price {}
+
+.sale {
+  width: 50px;
+  height: 45px;
+  text-align: center;
+  align-items: center;
+  border: 2px solid #CE7C2A;
+  border-radius: 4px;
+  color: #CE7C2A;
+  background-color: transparent;
+  background-image: url('/images/plus.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.sale:hover {
+  transform: scale(1.05);
+}
+
+.sale:active {
+  background-image: url('/images/minus.svg');
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.actions img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.img img {
+  width: 100px;
+  height: 75px;
+}

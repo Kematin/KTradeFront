@@ -1,0 +1,48 @@
+.nav {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  background-color: var(--component-color);
+  height: 70px;
+}
+
+.group {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  list-style-type: none;
+  font-size: 25px;
+  position: relative;
+}
+
+.group li {
+  cursor: pointer;
+}
+
+.group:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  left: -25px;
+  top: 60%;
+  transform: translateY(-50%);
+  height: 100%;
+  width: 2px;
+  background-color: var(--text-color); 
+}
+
+.links {
+  display: flex;
+  gap: 50px;
+}
+
+.name {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  font-weight: normal;
+  font-size: var(--font-size-big);
+}
+
+.steamuser {
+  font-size: var(--font-size-base);
+}

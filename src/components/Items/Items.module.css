@@ -1,0 +1,44 @@
+
+.items {
+  position: relative;
+  width: 70%;
+  height: 100%;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+
+.header {
+  background-color: var(--component-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  height: 30px;
+}
+
+.count {
+  display: flex;
+  gap: 15px;
+}
+
+.corner {
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  top: 0px;
+  right: -50px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.corner img {
+  width: 40px;
+  height: 40px;
+}
+

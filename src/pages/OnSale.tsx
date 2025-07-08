@@ -2,13 +2,13 @@ import { Navbar } from "../components/NavBar/Navbar"
 import { Items } from "../components/Items/Items"
 import "../styles/base.css"
 
-export function BasePage() {
+export function OnSalePage() {
 
     return (
         <>
-            <Navbar activePage="inventory"/>
+            <Navbar activePage="onSale"/>
             <div id="content">
-                <Items />
+                <Items activePage="onSale"/>
             </div>
         </>
     )

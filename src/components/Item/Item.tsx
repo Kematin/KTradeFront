@@ -1,21 +1,38 @@
-import styles from "./Item.module.css"
+import styles from "./Item.module.css";
+import type { ICSGOItem, ICustomItem } from "../../js/types/items";
 
-export function Item() {
-    return (
-        <div className={styles.item}>
-            <div className={styles.about}>
-                <div className={styles.img}><img src="https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wiFO0POlPPNSIeOaB2qf19F6ueZhW2e2wEt-t2jcytf6dymSO1JxA5oiRecLsRa5kIfkYr-241aLgotHz3-rkGoXuUp8oX57/360fx360f" alt="" /></div>
-                <div className={styles.description}>
-                    <span className="type">ST | FT | AWP</span>
-                    <span className="name">Worm God</span>
-                </div>
-            </div>
-            <p className={styles.price}><b>$</b>5.34</p>
-            <button className={styles.sale}></button>
-            <div className={styles.actions}>
-                <img src="/images/favorite.svg" alt="" className="favorite" />
-                <img src="/images/buffer.svg" alt="" className="buffer" />
-            </div>
+interface ItemProps {
+  item: ICSGOItem | ICustomItem;
+  isCsgo?: boolean;
+}
+
+export function Item({ item, isCsgo = true }: ItemProps) {
+  const csgoItem = isCsgo ? (item as ICSGOItem) : null;
+
+  return (
+    <div className={styles.item}>
+      <div className={styles.about}>
+        <div className={styles.img}>
+          <img src={item.image_url} alt={item.name} />
         </div>
-    )
+        <div className={styles.description}>
+          {csgoItem && <span className={styles.type}>{csgoItem.quality}</span>}
+          <span className={styles.name} title={item.name}>
+            {item.name}
+          </span>
+        </div>
+      </div>
+
+      <p className={styles.price}>
+        <b>{item.currency}</b>
+        {item.price.toFixed(2)}
+      </p>
+
+      <div className={styles.actions}>
+        <button className={styles.sale} />
+        <img src="/images/favorite.svg" alt="Add to favorites" />
+        <img src="/images/buffer.svg" alt="Copy to buffer" />
+      </div>
+    </div>
+  );
 }

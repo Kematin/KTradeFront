@@ -1,8 +1,6 @@
 import styles from "./Navbar.module.css"
-
-interface NavbarProps {
-    activePage?: "inventory" | "onSale" | "sold";
-}
+import { Link } from 'react-router-dom';
+import type { NavbarProps } from "../../js/types/nav"
 
 export function Navbar({activePage}: NavbarProps) {
     return (
@@ -19,13 +17,13 @@ export function Navbar({activePage}: NavbarProps) {
                 </ul>
                 <ul className={styles.group}>
                     <li className={activePage === "inventory" ? "active" : ""}>
-                        Inventory
+                        <Link to="/">Inventory</Link>
                     </li>
                     <li className={activePage === "onSale" ? "active" : ""}>
-                        On Sale
+                        <Link to="/on-sale">On Sale</Link>
                     </li>
                     <li className={activePage === "sold" ? "active" : ""}>
-                        Sold
+                        <Link to="/sold">Sold</Link>
                     </li>
                 </ul>
             </div>

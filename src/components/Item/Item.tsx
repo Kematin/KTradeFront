@@ -29,7 +29,7 @@ export function Item({ item, isCsgo = true }: ItemProps) {
       </p>
 
       <div className={styles.actions}>
-        <button className={styles.sale} />
+        <button className="sale-button" />
         <img src="/images/favorite.svg" alt="Add to favorites" />
         <img src="/images/buffer.svg" alt="Copy to buffer" />
       </div>

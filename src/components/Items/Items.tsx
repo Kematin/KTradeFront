@@ -3,9 +3,10 @@ import styles from "./Items.module.css";
 import { useState, useEffect } from "react";
 import { Item } from "../Item/Item";
 import { loadItems } from "../../js/getItems";
+import { AddSalePopup } from "../AddSalePopup/AddSalePopup";
 
 import type { ICSGOItem, ICustomItem } from "../../js/types/items";
-import type { NavbarProps } from "../../js/types/nav";
+import type { NavbarProps } from "../../js/types/props";
 
 export function Items({ activePage }: NavbarProps) {
   const [items, setItems] = useState<(ICSGOItem | ICustomItem)[]>([]);
@@ -79,6 +80,7 @@ export function Items({ activePage }: NavbarProps) {
           <div className={styles.empty}>No items found</div>
         )}
       </div>
+      <AddSalePopup />
     </section>
   );
 }

@@ -1,0 +1,16 @@
+
+
+.itemimg {
+  flex: 1;
+  height: 120px;
+  border-radius: 8px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.uploadtext {
+  cursor: pointer;
+}
+

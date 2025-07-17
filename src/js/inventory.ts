@@ -1,4 +1,4 @@
-import type { ICSGOItem, ICustomItem } from "./types/items";
+import type { ICSGOItem, ICustomItem } from "./schemas/items";
 
 const csgoTestItems: ICSGOItem[] = [
   {

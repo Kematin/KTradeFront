@@ -3,11 +3,13 @@ import styles from "./Items.module.css";
 import { useState, useEffect } from "react";
 import { Item } from "../Item/Item";
 import { loadItems } from "../../js/getItems";
+import { AddSalePopup } from "../AddSalePopup/AddSalePopup";
 
-import type { ICSGOItem, ICustomItem } from "../../js/types/items";
-import type { NavbarProps } from "../../js/types/nav";
+import type { ICSGOItem, ICustomItem } from "../../js/schemas/items";
+import type { NavbarProps } from "../../js/schemas/props";
 
 export function Items({ activePage }: NavbarProps) {
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [items, setItems] = useState<(ICSGOItem | ICustomItem)[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -51,8 +53,7 @@ export function Items({ activePage }: NavbarProps) {
       {activePage === "onSale" ? (
         <button
           className={styles.corner}
-          // TODO
-          onClick={handleRefresh}
+          onClick={() => setIsPopupVisible(true)}
           disabled={isLoading}
           aria-label="Add items to sale"
         >
@@ -79,6 +80,12 @@ export function Items({ activePage }: NavbarProps) {
           <div className={styles.empty}>No items found</div>
         )}
       </div>
+
+      {isPopupVisible && (
+        <div className={styles.popupOverlay}>
+          <AddSalePopup onClose={() => setIsPopupVisible(false)} />
+        </div>
+      )}
     </section>
   );
 }

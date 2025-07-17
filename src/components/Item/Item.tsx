@@ -1,5 +1,5 @@
 import styles from "./Item.module.css";
-import type { ICSGOItem, ICustomItem } from "../../js/types/items";
+import type { ICSGOItem, ICustomItem } from "../../js/schemas/items";
 
 interface ItemProps {
   item: ICSGOItem | ICustomItem;
@@ -29,7 +29,7 @@ export function Item({ item, isCsgo = true }: ItemProps) {
       </p>
 
       <div className={styles.actions}>
-        <button className={styles.sale} />
+        <button className="sale-button" />
         <img src="/images/favorite.svg" alt="Add to favorites" />
         <img src="/images/buffer.svg" alt="Copy to buffer" />
       </div>

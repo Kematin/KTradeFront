@@ -46,29 +46,6 @@
 
 .price {}
 
-.sale {
-  width: 50px;
-  height: 45px;
-  text-align: center;
-  align-items: center;
-  border: 2px solid #CE7C2A;
-  border-radius: 4px;
-  color: #CE7C2A;
-  background-color: transparent;
-  background-image: url('/images/plus.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.sale:hover {
-  transform: scale(1.05);
-}
-
-.sale:active {
-  background-image: url('/images/minus.svg');
-}
 
 .actions {
   display: flex;

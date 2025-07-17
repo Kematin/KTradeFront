@@ -110,6 +110,10 @@ a {
   transform: scale(1.05);
 }
 
+.sale-button:disabled {
+  cursor: not-allowed;
+}
+
 
 
 input[type=number]::-webkit-inner-spin-button,

@@ -1,6 +1,6 @@
 import { items as initialItems } from "./inventory";
-import type { ICSGOItem, ICustomItem } from "./types/items";
-import type { ActivePage } from "./types/props";
+import type { ICSGOItem, ICustomItem } from "./schemas/items";
+import type { ActivePage } from "./schemas/props";
 import { fetchItems, getCurrencySymbol } from "./api";
 
 export async function loadItems(

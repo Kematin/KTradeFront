@@ -10,3 +10,7 @@ export interface UploadImageProps {
   selectedImage: string | null;
   setSelectedImage: Dispatch<SetStateAction<string | null>>;
 }
+
+export interface AddSalePopupProps {
+  onClose: () => void;
+}

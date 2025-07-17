@@ -2,7 +2,7 @@ import { useRef } from "react";
 import styles from "./UploadImage.module.css";
 
 import type { ChangeEvent } from "react";
-import type { UploadImageProps } from "../../js/types/props";
+import type { UploadImageProps } from "../../js/schemas/props";
 
 export function UploadImage({
   selectedImage,
@@ -14,8 +14,15 @@ export function UploadImage({
     if (!e.target.files || e.target.files.length === 0) return;
 
     const file = e.target.files[0];
+    const validTypes = ["image/jpeg", "image/png", "image/webp"];
+
     if (!file.type.startsWith("image/")) {
       alert("Please upload an image file");
+      return;
+    }
+
+    if (!validTypes.includes(file.type)) {
+      alert(`Unsupported file type. Allowed: ${validTypes.join(", ")}`);
       return;
     }
 

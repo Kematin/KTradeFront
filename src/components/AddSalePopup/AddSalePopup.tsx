@@ -3,14 +3,26 @@ import styles from "./AddSalePopup.module.css";
 
 import { UploadImage } from "../UploadImage/UploadImage";
 
-export function AddSalePopup() {
+import { getCurrencySymbol } from "../../js/api";
+import { saleCustomCreate } from "../../js/sales";
+
+import type { AddSalePopupProps } from "../../js/schemas/props";
+import type { SaleRawData } from "../../js/schemas/sales";
+
+export function AddSalePopup({ onClose }: AddSalePopupProps) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  const [nameValue, setNameValue] = useState("");
   const [fromValue, setFromValue] = useState<string>("");
   const [toValue, setToValue] = useState<string>("");
   const [comValue, setComValue] = useState<string>("");
   const [countValue, setCountValue] = useState<number>(1);
   const [currency, setCurrency] = useState<"USD" | "RUB">("USD");
+  const [gameType, setGameType] = useState("Counter-Strike 2");
+  const [sourceMarketplace, setSourceMarketplace] = useState("Steam");
+  const [targetMarketplace, setTargetMarketplace] = useState("Steam");
 
+  // TODO move to module
   const calculateTotal = (): number => {
     const to: number = parseFloat(toValue) || 0;
     const com: number = parseFloat(comValue) || 0;
@@ -35,17 +47,42 @@ export function AddSalePopup() {
   };
 
   const { amount, percent } = calculateProfit();
-  const currencySymbol = currency === "USD" ? "$" : "₽";
+  const currencySymbol = getCurrencySymbol(currency);
+
+  const handleSubmit = async () => {
+    const data: SaleRawData = {
+      countValue: countValue,
+      fromValue: fromValue,
+      toValue: toValue,
+      comValue: comValue,
+      sourceMarketplace: sourceMarketplace,
+      targetMarketplace: targetMarketplace,
+      currency: currency,
+      nameValue: nameValue,
+      selectedImage: selectedImage,
+      gameType: gameType,
+      PopupOnClose: onClose,
+    };
+    await saleCustomCreate(data);
+  };
 
   return (
-    <div className={styles.popup}>
+    <div className={styles.popup} onClick={(e) => e.stopPropagation()}>
+      <button className={styles.closeButton} onClick={onClose}>
+        ×
+      </button>
       <header className={styles.header}>
         <UploadImage
           selectedImage={selectedImage}
           setSelectedImage={setSelectedImage}
         />
         <div className={styles.headerText}>
-          <input className={styles.input} placeholder="Name" />
+          <input
+            className={styles.input}
+            placeholder="Name"
+            value={nameValue}
+            onChange={(e) => setNameValue(e.target.value)}
+          />
         </div>
       </header>
       <div className={styles.main}>
@@ -109,15 +146,34 @@ export function AddSalePopup() {
                 setCountValue(parseInt(e.target.value))
               }
             />
+            <select
+              className={styles.select}
+              value={gameType}
+              onChange={(e) => setGameType(e.target.value)}
+            >
+              <option>Counter-Strike 2</option>
+              <option>Dota 2</option>
+              <option>Rust</option>
+              <option>Team Fortress 2</option>
+              <option>Other</option>
+            </select>
           </div>
         </div>
         <div className={styles.description}>
           <div className={styles.markets}>
-            <select className={styles.select}>
+            <select
+              className={styles.select}
+              value={sourceMarketplace}
+              onChange={(e) => setSourceMarketplace(e.target.value)}
+            >
               <option>Steam</option>
               <option>CSMoney</option>
             </select>
-            <select className={styles.select}>
+            <select
+              className={styles.select}
+              value={targetMarketplace}
+              onChange={(e) => setTargetMarketplace(e.target.value)}
+            >
               <option>Steam</option>
               <option>CSMoney</option>
             </select>
@@ -140,7 +196,11 @@ export function AddSalePopup() {
         </div>
       </div>
       <footer className={styles.footer}>
-        <button className="sale-button"></button>
+        <button
+          className="sale-button"
+          onClick={handleSubmit}
+          disabled={!nameValue || !selectedImage}
+        ></button>
       </footer>
     </div>
   );

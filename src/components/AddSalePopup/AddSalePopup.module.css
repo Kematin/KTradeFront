@@ -1,13 +1,14 @@
 .popup {
   --inner-gap: 10px;
 
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   min-width: 450px;
-  max-width: 500px;
-  min-height: 320px;
-  max-height: 520px;
+  max-width: 550px;
+  min-height: 450px;
+  max-height: 550px;
   background: var(--component-color);
   border-radius: 12px;
   gap: 20px;
@@ -71,6 +72,25 @@ Main dynamic elements
   font-family: var(--font-main);
   cursor: pointer;
 }
+
+/*
+==============================================
+Close button
+============================================== 
+*/
+
+.closeButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+  z-index: 1;
+}
+
 
 
 /*

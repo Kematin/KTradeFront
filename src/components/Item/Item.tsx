@@ -1,5 +1,5 @@
 import styles from "./Item.module.css";
-import type { ICSGOItem, ICustomItem } from "../../js/types/items";
+import type { ICSGOItem, ICustomItem } from "../../js/schemas/items";
 
 interface ItemProps {
   item: ICSGOItem | ICustomItem;

@@ -1,6 +1,6 @@
 import styles from "./Navbar.module.css";
 import { Link } from "react-router-dom";
-import type { NavbarProps } from "../../js/types/props";
+import type { NavbarProps } from "../../js/schemas/props";
 
 export function Navbar({ activePage }: NavbarProps) {
   return (
